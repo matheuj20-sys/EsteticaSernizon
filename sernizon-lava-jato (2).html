@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SERNIZON LAVA JATO | Estética Automotiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #0a0a0a;
+      --dark: #111111;
+      --gray: #1a1a1a;
+      --red: #e10600;
+      --red-dark: #b30500;
+      --green: #25D366;
+      --green-dark: #1da851;
+      --white: #ffffff;
+      --light-gray: #f5f5f5;
+      --text-gray: #b0b0b0;
+      --bronze: #cd7f32;
+      --silver: #c0c0c0;
+      --gold: #ffd700;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== TOP BAR ===== */
+    .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 20;
+      border-bottom: 1px solid rgba(225, 6, 0, 0.25);
+    }
+
+    .top-bar-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #e0e0e0;
+      letter-spacing: 0.3px;
+    }
+
+    .top-bar-content .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .top-bar-content strong {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* ===== HEADER / HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.82) 100%),
+                  url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      padding: 110px 20px 70px;
+    }
+
+    /* Logo Container */
+    .logo-container {
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px 28px 14px 14px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+    }
+
+    .logo-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(145deg, #e10600 0%, #ff2a1f 50%, #c10000 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: white;
+      box-shadow: 0 6px 20px rgba(225, 6, 0, 0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+      letter-spacing: -1px;
+      position: relative;
+    }
+
+    .logo-icon::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      pointer-events: none;
+    }
+
+    .logo-text {
+      text-align: left;
+    }
+
+    .logo {
+      font-size: 2.35rem;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      line-height: 1.05;
+      color: #fff;
+    }
+
+    .logo span {
+      color: var(--red);
+    }
+
+    .logo-sub {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 3.2px;
+      color: #aaa;
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+
+    .location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #f0f0f0;
+      padding: 9px 20px;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 32px;
+      backdrop-filter: blur(6px);
+      letter-spacing: 0.3px;
+    }
+
+    .location-badge svg {
+      width: 15px;
+      height: 15px;
+      fill: var(--red);
+      flex-shrink: 0;
+    }
+
+    .location-badge strong {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.95rem, 5vw, 3.4rem);
+      font-weight: 700;
+      max-width: 780px;
+      margin-bottom: 16px;
+      line-height: 1.18;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      font-size: 1.12rem;
+      color: #b8b8b8;
+      max-width: 560px;
+      margin-bottom: 38px;
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .btn-green:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-red {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .btn-red:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title span {
+      color: var(--red);
+    }
+
+    /* ===== SOBRE ===== */
+    .sobre {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .sobre-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .sobre-text h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .sobre-text p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      margin-bottom: 15px;
+    }
+
+    .sobre-image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .sobre-image img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ===== DIFERENCIAIS ===== */
+    .diferenciais {
+      background: var(--dark);
+    }
+
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .diff-card {
+      background: var(--gray);
+      padding: 35px 25px;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      border: 1px solid #222;
+    }
+
+    .diff-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--red);
+    }
+
+    .diff-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .diff-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--red);
+    }
+
+    .diff-card p {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+    }
+
+    /* ===== SERVIÇOS ===== */
+    .servicos {
+      background: var(--black);
+    }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 20px;
+    }
+
+    .servico-card {
+      background: var(--gray);
+      padding: 30px;
+      border-radius: 12px;
+      border-left: 4px solid var(--red);
+    }
+
+    .servico-card h3 {
+      color: var(--red);
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .servico-card p {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+    }
+
+    /* ===== PACOTES ===== */
+    .pacotes {
+      background: var(--dark);
+    }
+
+    .pacotes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .pacote-card {
+      background: var(--gray);
+      border-radius: 16px;
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .pacote-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .pacote-card.bronze {
+      border-color: var(--bronze);
+    }
+
+    .pacote-card.prata {
+      border-color: var(--silver);
+    }
+
+    .pacote-card.ouro {
+      border-color: var(--gold);
+      background: linear-gradient(145deg, #1a1a1a, #1f1a0f);
+    }
+
+    .pacote-badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .bronze .pacote-badge {
+      background: var(--bronze);
+      color: #000;
+    }
+
+    .prata .pacote-badge {
+      background: var(--silver);
+      color: #000;
+    }
+
+    .ouro .pacote-badge {
+      background: var(--gold);
+      color: #000;
+    }
+
+    .pacote-icon {
+      font-size: 3rem;
+      margin: 20px 0 10px;
+    }
+
+    .pacote-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .pacote-card .subtitle {
+      color: var(--text-gray);
+      font-size: 0.9rem;
+      margin-bottom: 25px;
+    }
+
+    .pacote-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .pacote-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #2a2a2a;
+      font-size: 0.95rem;
+      color: #ddd;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .pacote-list li:last-child {
+      border-bottom: none;
+    }
+
+    .pacote-list li::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .pacote-card .btn {
+      width: 100%;
+    }
+
+    /* ===== CTA FINAL ===== */
+    .cta {
+      background: linear-gradient(135deg, var(--red), #8b0000);
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .cta h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      font-size: 1.2rem;
+      margin-bottom: 35px;
+      opacity: 0.95;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--black);
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 1px solid #222;
+    }
+
+    footer p {
+      color: var(--text-gray);
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--red);
+      text-decoration: none;
+    }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 1.7rem;
+        letter-spacing: 1.5px;
+      }
+
+      .logo-box {
+        padding: 10px 18px 10px 10px;
+        gap: 12px;
+      }
+
+      .logo-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.35rem;
+        border-radius: 12px;
+      }
+
+      .logo-sub {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+      }
+
+      .sobre-content {
+        grid-template-columns: 1fr;
+      }
+
+      .sobre-image img {
+        height: 250px;
+      }
+
+      .pacotes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 92vh;
+        padding: 95px 18px 50px;
+      }
+
+      .top-bar {
+        padding: 12px 16px;
+      }
+
+      .top-bar-content {
+        font-size: 0.82rem;
+      }
+
+      .location-badge {
+        font-size: 0.82rem;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-bar-content">
+      <span class="dot"></span>
+      Atendemos em <strong>Candeias • MG</strong>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="logo-container">
+      <div class="logo-box">
+        <div class="logo-icon">SZ</div>
+        <div class="logo-text">
+          <div class="logo">SERNI<span>ZON</span></div>
+          <div class="logo-sub">Lava Jato & Estética Automotiva</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="location-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <strong>Candeias</strong> • Minas Gerais
+    </div>
+
+    <h1>Estética automotiva completa<br>para o seu carro!</h1>
+    <p>Cuidamos do seu veículo por dentro e por fora com produtos premium e técnicas profissionais.</p>
+    <a href="https://wa.me/5500000000000?text=Olá! Vim pelo site e gostaria de saber mais sobre os serviços da SERNIZON LAVA JATO" class="btn btn-green" target="_blank">
+      Agendar pelo WhatsApp
+    </a>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre">
+    <div class="container">
+      <div class="sobre-content">
+        <div class="sobre-text">
+          <h2>Sobre a SERNIZON</h2>
+          <p>A SERNIZON Lava Jato cuida do seu carro por dentro e por fora!</p>
+          <p>Utilizamos equipamentos e produtos profissionais de alta qualidade para garantir o cuidado que seu veículo merece. Nosso serviço especializado renova e protege a pintura, devolvendo a aparência e originalidade do seu carro.</p>
+          <p>Atendemos em <strong>Candeias - MG</strong>, carros nacionais e importados, com excelência e atenção aos mínimos detalhes.</p>
+        </div>
+        <div class="sobre-image">
+          <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Carro sendo lavado profissionalmente">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="diferenciais">
+    <div class="container">
+      <h2 class="section-title">Nossos <span>Diferenciais</span></h2>
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="diff-icon">🚗</div>
+          <h3>Nacionais e Importados</h3>
+          <p>Atendemos todos os tipos de veículos com o mesmo padrão de excelência.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">✨</div>
+          <h3>Por Dentro e Por Fora</h3>
+          <p>Serviço completo: limpeza externa detalhada + higienização interna profunda.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">💎</div>
+          <h3>Produtos Premium</h3>
+          <p>Utilizamos apenas produtos de alta performance e qualidade profissional.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">🛡️</div>
+          <h3>Proteção Duradoura</h3>
+          <p>Pacotes com proteção de até 3 anos para sua pintura.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="servicos">
+    <div class="container">
+      <h2 class="section-title">Nossos <span>Serviços</span></h2>
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <h3>Lavagem Detalhada</h3>
+          <p>Limpeza minuciosa de toda a pintura, rodas, caixas de roda, borrachas e detalhes. Muito além de um lava-rápido comum.</p>
+        </div>
+        <div class="servico-card">
+          <h3>Higienização Interna</h3>
+          <p>Limpeza profunda de bancos, teto, carpete, painel e plásticos. Remove sujeira, odores e deixa o interior como novo.</p>
+        </div>
+        <div class="servico-card">
+          <h3>Polimento Técnico</h3>
+          <p>Remoção de micro-riscos e recuperação do brilho original da pintura com técnicas profissionais.</p>
+        </div>
+        <div class="servico-card">
+          <h3>Vitrificação / Ceramic Coating</h3>
+          <p>Camada de proteção duradoura que oferece brilho intenso, repelência à água e proteção contra raios UV.</p>
+        </div>
+        <div class="servico-card">
+          <h3>Descontaminação</h3>
+          <p>Remoção de contaminantes aderidos à pintura (ferro, piche, seiva) para preparar a superfície para proteção.</p>
+        </div>
+        <div class="servico-card">
+          <h3>Cristalização de Vidros</h3>
+          <p>Tratamento que melhora a visibilidade e facilita a limpeza dos vidros, especialmente em dias de chuva.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACOTES -->
+  <section class="pacotes">
+    <div class="container">
+      <h2 class="section-title">Nossos <span>Pacotes</span></h2>
+      <div class="pacotes-grid">
+
+        <!-- BRONZE -->
+        <div class="pacote-card bronze">
+          <div class="pacote-badge">Bronze</div>
+          <div class="pacote-icon">🥉</div>
+          <h3>Lavagem Bronze</h3>
+          <p class="subtitle">Ideal para manutenção mensal</p>
+          <ul class="pacote-list">
+            <li>Lavagem externa detalhada</li>
+            <li>Limpeza de rodas e caixas de roda</li>
+            <li>Aplicação de pretinho nos pneus</li>
+            <li>Limpeza de vidros externos</li>
+            <li>Aspiração interna básica</li>
+            <li>Limpeza de painel e plásticos</li>
+          </ul>
+          <a href="https://wa.me/5500000000000?text=Olá! Quero agendar o pacote BRONZE da SERNIZON" class="btn btn-outline" target="_blank">
+            Quero o Bronze
+          </a>
+        </div>
+
+        <!-- PRATA -->
+        <div class="pacote-card prata">
+          <div class="pacote-badge">Prata</div>
+          <div class="pacote-icon">🥈</div>
+          <h3>Lavagem Prata</h3>
+          <p class="subtitle">Cuidado completo + proteção</p>
+          <ul class="pacote-list">
+            <li>Tudo do pacote Bronze</li>
+            <li>Higienização interna completa</li>
+            <li>Limpeza detalhada de borrachas</li>
+            <li>Descontaminação da pintura</li>
+            <li>Aplicação de cera ou selante</li>
+            <li>Limpeza de motor (opcional)</li>
+            <li>Proteção de até 6 meses</li>
+          </ul>
+          <a href="https://wa.me/5500000000000?text=Olá! Quero agendar o pacote PRATA da SERNIZON" class="btn btn-outline" target="_blank">
+            Quero o Prata
+          </a>
+        </div>
+
+        <!-- OURO -->
+        <div class="pacote-card ouro">
+          <div class="pacote-badge">Ouro</div>
+          <div class="pacote-icon">🥇</div>
+          <h3>Lavagem Ouro</h3>
+          <p class="subtitle">O máximo em estética e proteção</p>
+          <ul class="pacote-list">
+            <li>Tudo do pacote Prata</li>
+            <li>Polimento técnico</li>
+            <li>Vitrificação / Ceramic Coating</li>
+            <li>Aplicação em plásticos internos e externos</li>
+            <li>Cristalização de vidros</li>
+            <li>Higienização profunda de teto e carpete</li>
+            <li>Proteção de até 3 anos</li>
+          </ul>
+          <a href="https://wa.me/5500000000000?text=Olá! Quero agendar o pacote OURO da SERNIZON" class="btn btn-green" target="_blank">
+            Quero o Ouro
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta">
+    <div class="container">
+      <h2>Pronto para deixar seu carro impecável?</h2>
+      <p>Fale conosco agora e agende o melhor cuidado para o seu veículo.</p>
+      <a href="https://wa.me/5500000000000?text=Olá! Vim pelo site da SERNIZON e quero agendar um serviço" class="btn btn-green" target="_blank" style="font-size: 1.1rem; padding: 18px 50px;">
+        Falar no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>SERNIZON LAVA JATO</strong> © 2026. Todos os direitos reservados.</p>
+    <p style="margin-top: 8px;">📍 Candeias • Minas Gerais</p>
+    <p style="margin-top: 6px;">Estética Automotiva • Bronze • Prata • Ouro</p>
+    <p style="margin-top: 18px; font-size: 0.82rem; color: #777;">Desenvolvido por <strong style="color: #aaa;">Matheus Stiflers</strong> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>
